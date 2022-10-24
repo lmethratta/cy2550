@@ -1,0 +1,68 @@
+#!/usr/bin/python3
+
+import random;
+import argparse;
+
+parser = argparse.ArgumentParser()
+
+parser.add_argument('-w', '--words', metavar='WORDS', type=int, 
+		    help='include WORDS words in the password (default = 4)', 
+		    default=4)
+
+parser.add_argument('-c', '--caps', metavar='CAPS', type=int,
+		    help='capitalize the first letter of CAPS random words (default = 0)',
+		    default=0)
+
+parser.add_argument('-n', '--numbers', metavar='NUMBERS', type=int,
+		    help='insert NUMBERS random numbers into the password (default = 0)',
+		    default=0)
+		    
+parser.add_argument('-s', '--symbols', metavar='SYMBOLS', type=int,
+		    help='insert SYMBOLS random symbols into the password (default = 0)',
+		    default=0)
+		    
+args = parser.parse_args()
+
+countCaps=args.caps  # This is the number of capitals
+countNumbers=args.numbers  # This is the number of numbers
+countSymbols=args.symbols  # This is the number of symbols
+
+numbers= ['0','1','2','3','4','5','6','7','8','9'] #0-9
+symbols= ['~','!','@','#','$','%','^','&','*','.',':',';'] #0-11
+
+final = []
+
+file = open('words.txt', 'r')
+words = list(map(str, file.read().split()))
+
+for i in range(0, args.words): #Inserts the appropriate amount of words randomly
+  rando = random.randint(0, len(words) - 1)
+  final.append(words[rando])
+
+for i in range(0, countCaps):  #Handles caps
+  final[i] = final[i].capitalize()
+
+random.shuffle(final)
+
+for i in range(0, countNumbers): #Handles numbers
+  rando = random.randint(0, 9)
+  final[i] = final[i] + str(rando)
+
+random.shuffle(final)
+
+for i in range(0, countSymbols):  #Handles symbols
+  rando = random.randint(0, len(symbols) - 1)
+  final[i] = final[i] + symbols[rando]
+
+random.shuffle(final)
+
+print("".join(final))
+
+  
+  
+
+
+
+
+
+
