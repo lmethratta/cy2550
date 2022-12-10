@@ -21,6 +21,6 @@ network inet tcp,
   /etc/passwd r,
   /etc/hosts r,
   @{HOME]/p6/template r,
-  /usr/lib/aarch64-linux-gnu/libc.so.6mr,
+  /usr/lib/aarch64-linux-gnu/libc.so.6 mr,
 #  /us/lib/aarch64-linux-gnu/* mr.
 }
