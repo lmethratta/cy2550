@@ -1,22 +1,33 @@
 # Last Modified: Wed Nov 16 19:59:53 2022
 
-abi <abi/3.0>,
-
 include <tunables/global>
 
-/home/methrattal/p2 {
-# include <abstractions/bases>
-# include <abstractions/user-tag>
-/home/methrattal/p2 mr, 
-/home/methrattal/.project2/config rwm, 
-/userf/log/syslog rw, 
-/etc/fstab rw, 
-/proc/version r,
-/proc/buddyinfo r,
-/etc/crontab r,
- /run/systemd/resolve/stub-resolv.conf r,
- /etc/passwd r,
- /etc/hosts r,
- /home/methrattal/template rwm, 
- network inet tcp,
+/home/methrattal/cy2550/project6/p2 {
+ #include <abstractions/user-tmp>
+  /{usr/,}lib{,32,64}/**                r,
+  /{usr/,}lib{,32,64}/**.so*       mr,
+  /{usr/,}lib/@{multiarch}/**            r,
+  /{usr/,}lib/@{multiarch}/**.so*   mr,
+  /{usr/,}lib/tls/i686/{cmov,nosegneg}/*.so*    mr,
+  /{usr/,}lib/i386-linux-gnu/tls/i686/{cmov,nosegneg}/*.so*    mr,
+  @{PROC}/filesystems            r,
+  @{PROC}/cpuinfo          r,
+
+
+
+  network inet,
+
+  /etc/hostid r,
+  /etc/hosts r,
+  /etc/passwd r,
+  /etc/timezone r,
+  /home/eric/cy2550/project6/p2 mr,
+  /proc/uptime r,
+  /var/log/syslog r,
+  owner /home/methrattal/.project2/config w,
+  owner /home/methrattal/cy2550/project6/template r,
+
 }
+
+
+  
