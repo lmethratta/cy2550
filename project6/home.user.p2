@@ -4,23 +4,19 @@ abi <abi/3.0>,
 
 include <tunables/global>
 
-/home/cy2550/project6/p2 {
+/home/methrattal/p2 {
 # include <abstractions/bases>
-
-network inet tcp,
-
-# @{HOME7/p6/p2/ mr,
-  /tmp/project* rw,
-  @{HOME)/.project2/config w,
-  /var/log/syslog r,
-  /etc/fstab r,
-  /proc/version r,
-  /proc/buddyinfo r,
-  /etc/crontab r,
-  /run/systemd/resolve/stub-resolv.conf r,
-  /etc/passwd r,
-  /etc/hosts r,
-  @{HOME]/p6/template r,
-  /usr/lib/aarch64-linux-gnu/libc.so.6 mr,
-#  /us/lib/aarch64-linux-gnu/* mr.
+# include <abstractions/user-tag>
+/home/methrattal/p2 mr, 
+/home/methrattal/.project2/config rwm, 
+/userf/log/syslog rw, 
+/etc/fstab rw, 
+/proc/version r,
+/proc/buddyinfo r,
+/etc/crontab r,
+ /run/systemd/resolve/stub-resolv.conf r,
+ /etc/passwd r,
+ /etc/hosts r,
+ /home/methrattal/template rwm, 
+ network inet tcp,
 }
