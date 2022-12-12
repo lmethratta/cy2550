@@ -1,4 +1,3 @@
-# Last Modified: Wed Nov 16 19:59:53 2022
 
 abi <abi/3.0>,
 include <tunables/global>
@@ -14,5 +13,3 @@ include <tunables/global>
   /proc/buddyinfo r,
   /etc/crontab r,
 }
-
-  
